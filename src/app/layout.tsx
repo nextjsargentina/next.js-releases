@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<meta name='description' content={metadata.description?.toString()} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<body className={inter.className}>{children}</body>
+			<body className={`${inter.className} dark`}>{children}</body>
 		</html>
 	)
 }
