@@ -1,11 +1,5 @@
 import axios from 'axios'
-
-interface Release {
-	id: number
-	tag_name: string
-	name: string
-	body: string
-}
+import { type Release } from '../types'
 
 export const getReleases = async (): Promise<Release[]> => {
 	try {
