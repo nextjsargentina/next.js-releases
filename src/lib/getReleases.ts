@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { type Release } from '../types'
+import { personalAccessToken } from '@/config'
 
 export const getReleases = async (): Promise<Release[]> => {
 	try {
@@ -7,7 +8,7 @@ export const getReleases = async (): Promise<Release[]> => {
 			'https://api.github.com/repos/vercel/next.js/releases',
 			{
 				headers: {
-					Authorization: `token TU_TOKEN_DE_ACCESO_PERSONAL`
+					Authorization: `token ${personalAccessToken}`
 				}
 			}
 		)
