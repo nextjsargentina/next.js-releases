@@ -24,7 +24,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 				<section>
 					{releases.map((release) => (
 						<div key={release.id}>
-							<Card>
+							<Card className='flex items-center mb-12'>
 								<CardHeader>
 									{release.name}
 									{/* <p>{release.body}</p> */}
