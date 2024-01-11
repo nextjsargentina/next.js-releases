@@ -26,33 +26,27 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 			) : (
 				<section>
 					{releases.map((release) => (
-						<div key={release.id}>
-							<Card className='flex items-center mb-12'>
-								<CardHeader className='flex flex-row gap-x-4 text-xl'>
-									<CardTitle>
-										<Link
-											href={release.html_url}
-											className='text-blue-500'
-											rel='noopener noreferrer'
-											target='_blank'
-										>
-											{release.name}
-										</Link>
-									</CardTitle>
-									<CardDescription>
-										<p>
-											{isPrerelease ? (
-												<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
-													Pre-release
-												</Badge>
-											) : (
-												''
-											)}
-										</p>
-									</CardDescription>
-								</CardHeader>
-							</Card>
-						</div>
+						<Card key={release.id} className='flex flex-row mb-12'>
+							<CardHeader className='flex items-center text-xl'>
+								<CardTitle>
+									<Link
+										href={release.html_url}
+										className='text-blue-500'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										{release.name}
+									</Link>
+								</CardTitle>
+							</CardHeader>
+							<span className='flex items-center pr-6'>
+								{isPrerelease && (
+									<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
+										Pre-release
+									</Badge>
+								)}
+							</span>
+						</Card>
 					))}
 				</section>
 			)}
