@@ -6,7 +6,24 @@ This bot read the [NextJS Releases](https://github.com/vercel/next.js/releases),
 
 ### Contributions:
 
-Feel free to contribute to this project, just fork it and make a PR.
+Feel free to contribute to this community project, just fork it and make a PR.</br>
+Actually, this is made for [Next.js Argentina community](https://twitter.com/nextjsargentina) so if you want to help us we'll appreciate a lot 🤗
+
+### How to run it:
+
+```bash
+# Clone the project
+
+git clone git@github.com:emapeire/nextjs-releases-bot.git
+
+# Install dependencies
+
+npm install
+
+# Run the project
+
+npm run dev
+```
 
 ### Licence:
 
