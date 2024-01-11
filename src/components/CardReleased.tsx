@@ -8,11 +8,12 @@ import {
 	CardHeader,
 	CardTitle
 } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
 	const noReleases = releases.length === 0
-	const prerelease = releases[0].prerelease ? 'prerelease' : 'release'
+	const isPrerelease = releases[0].prerelease
 
 	return (
 		<div>
@@ -27,8 +28,8 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 					{releases.map((release) => (
 						<div key={release.id}>
 							<Card className='flex items-center mb-12'>
-								<CardHeader>
-									<CardTitle className='flex flex-row gap-x-2'>
+								<CardHeader className='flex flex-row gap-x-4 text-xl'>
+									<CardTitle>
 										<Link
 											href={release.html_url}
 											className='text-blue-500'
@@ -37,8 +38,18 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 										>
 											{release.name}
 										</Link>
-										<span className='text-gray-500'>{release.prerelease}</span>
 									</CardTitle>
+									<CardDescription>
+										<p>
+											{isPrerelease ? (
+												<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
+													Pre-release
+												</Badge>
+											) : (
+												''
+											)}
+										</p>
+									</CardDescription>
 								</CardHeader>
 							</Card>
 						</div>
