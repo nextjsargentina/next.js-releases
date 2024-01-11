@@ -14,6 +14,7 @@ import Link from 'next/link'
 export function CardReleased({ releases }: { releases: Release[] }) {
 	const noReleases = releases.length === 0
 	const isPrerelease = releases[0].prerelease
+	const publishedFormatted = new Date(releases[0].published_at).toLocaleDateString()
 
 	return (
 		<div>
@@ -27,8 +28,8 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 				<section>
 					{releases.map((release) => (
 						<Card key={release.id} className='flex flex-row mb-12'>
-							<CardHeader className='flex items-center text-xl'>
-								<CardTitle>
+							<CardHeader className='flex gap-y-4'>
+								<CardTitle className='flex items-center md:text-3xl text-2xl'>
 									<Link
 										href={release.html_url}
 										className='text-blue-500'
@@ -38,6 +39,9 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 										{release.name}
 									</Link>
 								</CardTitle>
+								<CardDescription className='flex items-center'>
+									{publishedFormatted}
+								</CardDescription>
 							</CardHeader>
 							<span className='flex items-center pr-6'>
 								{isPrerelease && (
