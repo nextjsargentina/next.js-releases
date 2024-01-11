@@ -16,6 +16,10 @@ Actually, this is made for [Next.js Argentina community](https://twitter.com/nex
 
 git clone git@github.com:emapeire/nextjs-releases-bot.git
 
+# Go to the project folder
+
+cd nextjs-releases-bot
+
 # Install dependencies
 
 npm install
