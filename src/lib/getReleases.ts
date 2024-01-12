@@ -14,7 +14,6 @@ export const getReleases = async (): Promise<Release[]> => {
 		)
 		return response.data
 	} catch (error) {
-		console.error(error)
-		return []
+		throw new Error('Error fetching releases')
 	}
 }
