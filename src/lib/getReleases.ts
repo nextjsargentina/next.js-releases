@@ -2,7 +2,7 @@ import axios from 'axios'
 import { type Release } from '../types'
 import { personalAccessToken } from '@/config'
 
-export const getReleases = async (): Promise<Release[]> => {
+export async function getReleases(): Promise<Release[]> {
 	try {
 		const response = await axios.get<Release[]>(
 			'https://api.github.com/repos/vercel/next.js/releases',
