@@ -17,8 +17,8 @@ export interface Release {
 	tarball_url: string
 	zipball_url: string
 	body: string
-	reactions: Reactions
 	mentions_count: number
+	reactions?: Reactions
 }
 
 export interface Author {

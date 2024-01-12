@@ -32,16 +32,13 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 								<CardTitle className='flex items-center md:text-3xl text-2xl'>
 									<Link
 										href={release.html_url}
-										className='text-blue-500'
+										className='hover:text-blue-500 hover:underline'
 										rel='noopener noreferrer'
 										target='_blank'
 									>
 										{release.name}
 									</Link>
 								</CardTitle>
-								<CardDescription className='flex items-center'>
-									{publishedFormatted}
-								</CardDescription>
 							</CardHeader>
 							<span className='flex items-center pr-6'>
 								{isPrerelease && (
