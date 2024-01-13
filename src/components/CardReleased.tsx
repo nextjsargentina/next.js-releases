@@ -27,15 +27,10 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 			) : (
 				<div>
 					{releases.map((release) => (
-						<section key={release.id} className='flex flex-row gap-x-12'>
-							<div>
-								<p className='text-gray-500 text-sm'>
-									Published {timeSinceFormat(new Date(release.published_at))}
-								</p>
-							</div>
-							<Card className='mb-12'>
-								<section className='flex flex-row'>
-									<CardHeader className='flex gap-y-4'>
+						<section key={release.id}>
+							<Card className='mb-12 pr-6'>
+								<section className='flex items-center'>
+									<CardHeader>
 										<CardTitle className='flex items-center md:text-3xl text-2xl'>
 											<Link
 												href={release.html_url}
@@ -53,6 +48,11 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 												Pre-release
 											</Badge>
 										)}
+									</span>
+									<span className='flex items-center'>
+										<Badge className='text-gray-500' variant='secondary'>
+											Published {timeSinceFormat(new Date(release.published_at))}
+										</Badge>
 									</span>
 								</section>
 								<CardContent>
