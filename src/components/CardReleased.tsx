@@ -56,11 +56,18 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 									className='flex scale-90 rounded-full border border-slate-800 mr-2'
 								/>
 
-								<span className='flex text-slate-400 text-sm font-semibold mr-2'>
-									{release.author.login}
+								<span className='flex text-slate-400 text-sm font-bold mb-0.5 mr-2'>
+									<Link
+										href={release.author.html_url}
+										className='hover:underline'
+										rel='noopener noreferrer'
+										target='_blank'
+									>
+										{release.author.login}
+									</Link>
 								</span>
 
-								<Badge className='flex text-white' variant='secondary'>
+								<Badge className='flex text-white mr-6' variant='secondary'>
 									{timeSinceFormat(new Date(release.published_at))}
 								</Badge>
 							</section>
