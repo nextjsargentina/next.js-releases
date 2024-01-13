@@ -35,4 +35,4 @@ This project is under the [MIT](/LICENSE)
 
 ### Author:
 
-➡️ [Emanuel Peire](https://cv.emapeire.vercel.app) - [Twitter](https://twitter.com/emapeire) - [Github](https://github.com/emapeire)
+➡️ [Emanuel Peire](https://cv.emapeire.vercel.app) ➡️ [Twitter](https://twitter.com/emapeire) ➡️ [Github](https://github.com/emapeire)
