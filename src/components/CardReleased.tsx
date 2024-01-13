@@ -47,13 +47,25 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 								)}
 							</section>
 
-							<section className='flex px-6 pb-6'>
-								<Badge className='text-white' variant='secondary'>
+							<section className='flex items-center pl-6 pb-6'>
+								<img
+									src={release.author.avatar_url}
+									alt={release.author.avatar_url}
+									width={25}
+									height={25}
+									className='flex scale-90 rounded-full border border-slate-800 mr-2'
+								/>
+
+								<span className='flex text-slate-400 text-sm font-semibold mr-2'>
+									{release.author.login}
+								</span>
+
+								<Badge className='flex text-white' variant='secondary'>
 									{timeSinceFormat(new Date(release.published_at))}
 								</Badge>
 							</section>
 
-							<div className='border-b border-slate-800 py-1 mx-6'></div>
+							<div className='border-b border-slate-800 py-1 mx-6' />
 
 							<CardContent>
 								<div
