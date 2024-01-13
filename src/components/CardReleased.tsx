@@ -17,7 +17,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 	const noReleases = releases.length === 0
 
 	return (
-		<main className='px-24'>
+		<main>
 			{noReleases ? (
 				<Card>
 					<CardTitle>No releases</CardTitle>
@@ -39,17 +39,21 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 										</Link>
 									</CardTitle>
 								</CardHeader>
+
 								{release.prerelease && (
 									<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
 										Pre-release
 									</Badge>
 								)}
 							</section>
-							<section className='flex items-center'>
+
+							<section className='flex px-6 pb-6'>
 								<Badge className='text-white' variant='secondary'>
-									Published {timeSinceFormat(new Date(release.published_at))}
+									{timeSinceFormat(new Date(release.published_at))}
 								</Badge>
 							</section>
+
+							<div className='border-b border-slate-800 py-1 mx-6'></div>
 
 							<CardContent>
 								<div
