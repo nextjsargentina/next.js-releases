@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { timeSinceFormat } from '@/lib/timeSinceFormat'
-import { getReleases } from '@/lib/getReleases'
-import { Release } from '@/types'
+import { markdownToHtml } from '@/lib/markdownToHtml'
+import { type Release } from '@/types'
 import {
 	Card,
 	CardContent,
@@ -55,7 +55,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 									</span>
 								</section>
 								<CardContent>
-									<p>Card Content</p>
+									<div dangerouslySetInnerHTML={{ __html: markdownToHtml(release.body) }} />
 								</CardContent>
 							</Card>
 						</section>

@@ -1,6 +1,7 @@
 import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 
-export function markdownToHtml({ markdown }: { markdown: string }) {
-	const html = marked(markdown)
-	return html
+export async function markdownToHtml(markdown: string) {
+	const html = await marked(markdown)
+	return DOMPurify.sanitize(html)
 }
