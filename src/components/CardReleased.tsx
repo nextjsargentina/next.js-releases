@@ -30,7 +30,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 						<section key={release.id}>
 							<Card className='mb-12 pr-6'>
 								<section className='flex items-center'>
-									<CardHeader>
+									<CardHeader className='flex min-w-max'>
 										<CardTitle className='flex items-center md:text-3xl text-2xl'>
 											<Link
 												href={release.html_url}
@@ -42,18 +42,16 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 											</Link>
 										</CardTitle>
 									</CardHeader>
-									<span className='flex items-center pr-6'>
+									<div className='flex w-full justify-between'>
 										{release.prerelease && (
 											<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
 												Pre-release
 											</Badge>
 										)}
-									</span>
-									<span className='flex items-center'>
-										<Badge className='text-gray-500' variant='secondary'>
+										<Badge className='text-white' variant='secondary'>
 											Published {timeSinceFormat(new Date(release.published_at))}
 										</Badge>
-									</span>
+									</div>
 								</section>
 								<CardContent>
 									<div
