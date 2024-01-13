@@ -11,6 +11,7 @@ import {
 	CardTitle
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import styles from './CardReleased.module.css'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
 	const noReleases = releases.length === 0
@@ -55,7 +56,10 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 									</span>
 								</section>
 								<CardContent>
-									<div dangerouslySetInnerHTML={{ __html: markdownToHtml(release.body) }} />
+									<div
+										className={styles.markdown}
+										dangerouslySetInnerHTML={{ __html: markdownToHtml(release.body) }}
+									/>
 								</CardContent>
 							</Card>
 						</section>
