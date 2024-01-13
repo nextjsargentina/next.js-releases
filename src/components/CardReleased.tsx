@@ -17,52 +17,49 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 	const noReleases = releases.length === 0
 
 	return (
-		<main>
+		<main className='px-24'>
 			{noReleases ? (
-				<div>
-					<Card>
-						<CardTitle>No releases</CardTitle>
-					</Card>
-				</div>
+				<Card>
+					<CardTitle>No releases</CardTitle>
+				</Card>
 			) : (
-				<div>
+				<>
 					{releases.map((release) => (
-						<section key={release.id}>
-							<Card className='mb-12 pr-6'>
-								<section className='flex items-center'>
-									<CardHeader className='flex min-w-max'>
-										<CardTitle className='flex items-center md:text-3xl text-2xl'>
-											<Link
-												href={release.html_url}
-												className='hover:text-blue-500 hover:underline'
-												rel='noopener noreferrer'
-												target='_blank'
-											>
-												{release.name}
-											</Link>
-										</CardTitle>
-									</CardHeader>
-									<div className='flex w-full justify-between'>
-										{release.prerelease && (
-											<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
-												Pre-release
-											</Badge>
-										)}
-										<Badge className='text-white' variant='secondary'>
-											Published {timeSinceFormat(new Date(release.published_at))}
-										</Badge>
-									</div>
-								</section>
-								<CardContent>
-									<div
-										className={styles.markdown}
-										dangerouslySetInnerHTML={{ __html: markdownToHtml(release.body) }}
-									/>
-								</CardContent>
-							</Card>
-						</section>
+						<Card key={release.id} className='mb-12'>
+							<section className='flex items-center'>
+								<CardHeader className='flex'>
+									<CardTitle className='flex md:text-3xl text-2xl'>
+										<Link
+											href={release.html_url}
+											className='hover:text-blue-500 hover:underline'
+											rel='noopener noreferrer'
+											target='_blank'
+										>
+											{release.name}
+										</Link>
+									</CardTitle>
+								</CardHeader>
+								{release.prerelease && (
+									<Badge className='text-yellow-600 border-yellow-600' variant='outline'>
+										Pre-release
+									</Badge>
+								)}
+							</section>
+							<section className='flex items-center'>
+								<Badge className='text-white' variant='secondary'>
+									Published {timeSinceFormat(new Date(release.published_at))}
+								</Badge>
+							</section>
+
+							<CardContent>
+								<div
+									className={styles.markdown}
+									dangerouslySetInnerHTML={{ __html: markdownToHtml(release.body) }}
+								/>
+							</CardContent>
+						</Card>
 					))}
-				</div>
+				</>
 			)}
 			{/* <Card>
 				<CardHeader>
