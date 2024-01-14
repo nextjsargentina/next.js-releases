@@ -15,16 +15,17 @@
 	color: #fff;
 	font-size: 1.25em;
 	font-weight: 600;
-	margin-top: 12px;
+	margin-top: 24px;
 	margin-bottom: 12px;
 }
 
-.markdown ul {
-	padding-left: 20px;
+.markdown ul li {
+	margin-left: 1.25em;
 }
 
-.markdown li {
-	margin-bottom: 0.5em;
+.markdown p {
+	font-style: italic;
+	margin-left: 1.25em;
 }
 
 .markdown code {

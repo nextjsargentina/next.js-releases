@@ -19,8 +19,18 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 	return (
 		<main>
 			{noReleases ? (
-				<Card>
-					<CardTitle>No releases</CardTitle>
+				<Card className='mb-12'>
+					<CardHeader className='flex'>
+						<CardTitle className='flex md:text-3xl text-2xl'>No releases</CardTitle>
+						<CardDescription>
+							There are no releases to show. Please check back later.
+						</CardDescription>
+					</CardHeader>
+					<CardFooter className='flex justify-end'>
+						<Link className='hover:underline' href='https://github.com/vercel/next.js/releases'>
+							View all releases
+						</Link>
+					</CardFooter>
 				</Card>
 			) : (
 				<>
@@ -84,20 +94,6 @@ export function CardReleased({ releases }: { releases: Release[] }) {
 					))}
 				</>
 			)}
-			{/* <Card>
-				<CardHeader>
-					<CardTitle>Card Title</CardTitle>
-					<CardDescription>Card Description</CardDescription>
-				</CardHeader>
-
-				<CardContent>
-					<p>Card Content</p>
-				</CardContent>
-
-				<CardFooter>
-					<p>Card Footer</p>
-				</CardFooter>
-			</Card> */}
 		</main>
 	)
 }

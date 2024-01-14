@@ -1,4 +1,5 @@
 import { CardReleased } from '@/components/CardReleased'
+import { PaginationControl } from '@/components/PaginationControl'
 import { getReleases } from '@/lib/getReleases'
 
 export default async function Home() {
@@ -10,6 +11,7 @@ export default async function Home() {
 				NextJS Releases Bot
 			</h1>
 			<CardReleased releases={releases} />
+			{/* <PaginationControl /> */}
 		</main>
 	)
 }
