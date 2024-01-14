@@ -23,13 +23,11 @@
 	margin-left: 1em;
 	list-style-type: disc;
 	margin-top: 0.25em;
-	margin-bottom: 0.25em;
 }
 
 .markdown p {
 	font-style: italic;
 	margin-top: 0.25em;
-	margin-bottom: 0.25em;
 }
 
 .markdown code {
