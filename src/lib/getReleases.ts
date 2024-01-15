@@ -1,11 +1,6 @@
 import axios from 'axios'
-import { type Release } from '../types'
+import { type SearchParams, type Release } from '../types'
 import { personalAccessToken } from '@/config'
-
-interface SearchParams {
-	page: number
-	perPage: number
-}
 
 export async function getReleases({ page, perPage }: SearchParams): Promise<Release[]> {
 	try {

@@ -74,3 +74,9 @@ export interface Reactions {
 	rocket: number
 	eyes: number
 }
+
+// SearchParams interface
+export interface SearchParams {
+	page: number
+	perPage: number
+}
