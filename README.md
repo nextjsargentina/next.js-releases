@@ -7,11 +7,12 @@ NextJS Releases Bot automatically monitors [NextJS Releases](https://github.com/
 ## Contribution
 
 Your contributions are welcome! To contribute:
+
 1. Fork the repository.
 2. Make your changes.
 3. Submit a PR.
 
-We especially appreciate contributions from those looking to support the Next.js Argentina community.
+Support and enhance this tool with us for the Next.js Argentina community. Your contributions are highly valued.
 
 ## Setup Instructions
 
