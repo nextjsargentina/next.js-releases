@@ -1,38 +1,34 @@
 # NextJS Releases Bot
 
-### About it:
+## Overview
 
-This bot read the [NextJS Releases](https://github.com/vercel/next.js/releases), then post in X (formerly Twitter) about it and send a message to a Discord channel when a new release is published.
+NextJS Releases Bot automatically monitors [NextJS Releases](https://github.com/vercel/next.js/releases), posting updates to X (formerly Twitter) and sending notifications to a Discord channel upon new releases. Designed for the [Next.js Argentina community](https://twitter.com/nextjsargentina), it's a pivotal tool for keeping the community informed.
 
-### Contributions:
+## Contribution
 
-Feel free to contribute to this community project, just fork it and make a PR.</br>
-Actually, this is made for [Next.js Argentina community](https://twitter.com/nextjsargentina) so if you want to help us we'll appreciate a lot 🤗
+Your contributions are welcome! To contribute:
+1. Fork the repository.
+2. Make your changes.
+3. Submit a PR.
 
-### How to run it:
+We especially appreciate contributions from those looking to support the Next.js Argentina community.
+
+## Setup Instructions
 
 ```bash
-# Clone the project
-
+# Clone the repository
 git clone git@github.com:emapeire/nextjs-releases-bot.git
 
-# Go to the project folder
-
+# Navigate to the project directory
 cd nextjs-releases-bot
 
 # Install dependencies
-
 npm install
 
-# Run the project
-
+# Start the project
 npm run dev
 ```
 
-### Licence:
+## Licence:
 
-This project is under the [MIT](/LICENSE)
-
-### Author:
-
-➡️ [Emanuel Peire](https://cv.emapeire.vercel.app) ➡️ [X: The everything app](https://x.com/emapeire) ➡️ [Github](https://github.com/emapeire)
+This project is under the [MIT](LICENSE)
