@@ -24,10 +24,10 @@ git clone git@github.com:emapeire/nextjs-releases-bot.git
 cd nextjs-releases-bot
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start the project
-npm run dev
+pnpm run dev
 ```
 
 ## Licence:
