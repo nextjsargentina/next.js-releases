@@ -6,8 +6,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'NextJS Releases Bot',
-	description: 'A bot that posts new releases of NextJS to X (formerly Twitter) and Discord'
+	title: 'NextJS Releases App',
+	description: "NextJS Releases is an App that tracks new releases on NextJS's GitHub repo."
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
