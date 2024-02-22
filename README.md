@@ -1,8 +1,8 @@
-# NextJS Releases Bot
+# NextJS Releases App
 
 ## Overview
 
-NextJS Releases Bot automatically monitors [NextJS Releases](https://github.com/vercel/next.js/releases), posting updates to X (formerly Twitter) and sending notifications to a Discord channel upon new releases. Designed for the [Next.js Argentina community](https://twitter.com/nextjsargentina), it's a pivotal tool for keeping the community informed.
+NextJS Releases App automatically monitors [NextJS Releases](https://github.com/vercel/next.js/releases), posting updates to X (formerly Twitter) and sending notifications to a Discord channel upon new releases. Designed for the [Next.js Argentina community](https://twitter.com/nextjsargentina), it's a pivotal tool for keeping the community informed.
 
 ## Contribution
 
