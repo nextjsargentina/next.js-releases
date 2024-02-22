@@ -15,6 +15,8 @@ export default function useReleases() {
 		const page = parseInt(router.query.page as string) || 1
 		const perPage = parseInt(router.query.perPage as string) || 5
 
+		if (!router.isReady) return
+
 		const fetchReleases = async () => {
 			setLoading(true)
 			setError(null)
