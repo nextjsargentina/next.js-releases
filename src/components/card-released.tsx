@@ -13,6 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import styles from './card-released.module.css'
 import Image from 'next/image'
+import { Button } from './ui/button'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
   const noReleases = releases.length === 0
@@ -20,7 +21,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
   return (
     <main>
       {noReleases ? (
-        <Card className='mb-12'>
+        <Card className='mb-12 border-gray-500 shadow-2xl shadow-white/10'>
           <CardHeader className='flex'>
             <CardTitle className='flex md:text-3xl text-2xl'>
               No releases
@@ -36,7 +37,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
               rel='noopener noreferrer'
               target='_blank'
             >
-              View all releases
+              <Button className='font-mono'>View all releases</Button>
             </Link>
           </CardFooter>
         </Card>

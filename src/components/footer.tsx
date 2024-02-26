@@ -9,7 +9,7 @@ export function Footer() {
           href='https://x.com/nextjsargentina'
           target='_blank'
           rel='noopener noreferrer'
-          className='hover:underline hover:text-blue-400'
+          className='hover:underline hover:text-blue-500'
         >
           NextJS Argentina
         </a>
