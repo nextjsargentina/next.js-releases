@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className='flex justify-center items-center text-white text-sm font-mono mb-12'>
+    <footer className='flex justify-center items-center text-white text-sm font-mono'>
       <p>&copy; {new Date().getFullYear()} NextJS Releases App</p>
       <span className='mx-2'>|</span>
       <p>
