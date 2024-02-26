@@ -1,10 +1,11 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { CardReleased } from '@/components/card-released'
+// import { PaginationControl } from '@/components/pagination-control'
 import { getReleases } from '@/lib/get-releases'
 import { type Release } from '@/types'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
 
 export default function ReleasesPage() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -32,6 +33,7 @@ export default function ReleasesPage() {
   return (
     <main className='flex flex-col items-center justify-center min-h-[95vh] md:p-24 p-12'>
       <CardReleased releases={releases} />
+      {/* <PaginationControl /> */}
     </main>
   )
 }
