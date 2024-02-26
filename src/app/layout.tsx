@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { Head } from '@/components/head'
+import { Footer } from '@/components/footer'
 
 export const metadata: Metadata = {
   title: 'NextJS Releases App',
@@ -21,7 +22,10 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} dark`}
     >
       <Head metadata={metadata} />
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
