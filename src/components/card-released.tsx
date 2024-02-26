@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { timeSinceFormat } from '@/lib/timeSinceFormat'
-import { markdownToHtml } from '@/lib/markdownToHtml'
+import { timeSinceFormat } from '@/lib/time-since-format'
+import { markdownToHtml } from '@/lib/markdown-to-html'
 import { type Release } from '@/types'
 import {
   Card,
@@ -11,7 +11,7 @@ import {
   CardTitle
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import styles from './CardReleased.module.css'
+import styles from './card-released.module.css'
 import Image from 'next/image'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
@@ -33,6 +33,8 @@ export function CardReleased({ releases }: { releases: Release[] }) {
             <Link
               className='hover:underline'
               href='https://github.com/vercel/next.js/releases'
+              rel='noopener noreferrer'
+              target='_blank'
             >
               View all releases
             </Link>
