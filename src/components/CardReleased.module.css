@@ -1,44 +1,32 @@
 .markdown {
-	font-family:
-		-apple-system,
-		BlinkMacSystemFont,
-		Segoe UI,
-		Helvetica,
-		Arial,
-		sans-serif,
-		Apple Color Emoji,
-		Segoe UI Emoji;
-	color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: #fff;
 }
 
 .markdown h3 {
-	color: #fff;
-	font-size: 1.25em;
-	font-weight: 600;
-	margin-top: 24px;
-	margin-bottom: 12px;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 .markdown ul li {
-	margin-left: 1em;
-	list-style-type: disc;
-	margin-top: 0.25em;
+  margin-left: 1em;
+  list-style-type: disc;
+  margin-top: 0.25em;
 }
 
 .markdown p {
-	font-style: italic;
-	margin-top: 0.25em;
+  font-style: italic;
+  margin-top: 0.25em;
 }
 
 .markdown code {
-	font-family:
-		SFMono-Regular,
-		Consolas,
-		Liberation Mono,
-		Menlo,
-		monospace;
-	background-color: rgba(250, 250, 250, 0.2);
-	padding: 3px 6px;
-	font-size: 85%;
-	border-radius: 6px;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  background-color: rgba(250, 250, 250, 0.2);
+  padding: 3px 6px;
+  font-size: 85%;
+  border-radius: 6px;
 }
