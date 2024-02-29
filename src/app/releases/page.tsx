@@ -21,7 +21,6 @@ export default function ReleasesPage() {
     getReleases({ page, perPage })
       .then((data) => {
         setReleases(data)
-        console.log(data)
       })
       .catch((error) => {
         console.error('Error fetching releases:', error)
