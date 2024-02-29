@@ -1,1 +1,1 @@
-export const personalAccessToken = process.env.PERSONAL_ACCESS_TOKEN
+export const personalAccessToken = process.env.NEXT_PUBLIC_PERSONAL_ACCESS_TOKEN
