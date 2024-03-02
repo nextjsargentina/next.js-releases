@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { CardReleased } from '@/components/card-released'
 // import { PaginationControl } from '@/components/pagination-control'
-import { getReleases } from '@/lib/get-releases'
+import { getReleases } from '@/app/releases/api/releases'
 import { type Release } from '@/types'
 
 export default function ReleasesPage() {
