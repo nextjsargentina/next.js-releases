@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { timeSinceFormat } from '@/lib/time-since-format'
-import { markdownToHtml } from '@/lib/markdown-to-html'
 import { type Release } from '@/types'
 import {
   Card,
@@ -14,8 +13,10 @@ import { Badge } from '@/components/ui/badge'
 import styles from './card-released.module.css'
 import Image from 'next/image'
 import { Button } from './ui/button'
+import { useContent } from '@/hooks/useContent'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
+  const { htmlContent } = useContent({ releases })
   const noReleases = releases.length === 0
 
   return (
@@ -43,7 +44,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
         </Card>
       ) : (
         <>
-          {releases.map((release) => (
+          {releases.map((release, index) => (
             <Card key={release.id} className='mb-12'>
               <section className='flex items-center'>
                 <CardHeader className='flex'>
@@ -100,7 +101,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                 <div
                   className={styles.markdown}
                   dangerouslySetInnerHTML={{
-                    __html: markdownToHtml(release.body)
+                    __html: htmlContent[index] ?? 'Loading...'
                   }}
                 />
               </CardContent>
