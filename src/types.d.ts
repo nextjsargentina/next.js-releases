@@ -75,8 +75,11 @@ export interface Reactions {
   eyes: number
 }
 
-// SearchParams interface
 export interface SearchParams {
-  page: number
-  perPage: number
+  query: Query
+}
+
+export interface Query {
+  page: string
+  perPage: string
 }
