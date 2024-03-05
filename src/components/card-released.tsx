@@ -22,7 +22,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
   return (
     <main>
       {noReleases ? (
-        <Card className='mb-12 border-gray-500 shadow-2xl shadow-white/10'>
+        <Card className='border-gray-600 shadow-2xl shadow-white/10'>
           <CardHeader className='flex'>
             <CardTitle className='flex md:text-3xl text-2xl'>
               No releases
@@ -45,7 +45,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
       ) : (
         <>
           {releases.map((release, index) => (
-            <Card key={release.id} className='mb-12'>
+            <Card key={release.id} className='mb-12 border-gray-600'>
               <section className='flex items-center'>
                 <CardHeader className='flex'>
                   <CardTitle className='flex md:text-3xl text-2xl'>
@@ -76,10 +76,10 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                   alt={release.author.avatar_url}
                   width={25}
                   height={25}
-                  className='flex scale-90 rounded-full border border-slate-800 mr-2'
+                  className='flex scale-90 rounded-full border border-gray-800 mr-2'
                 />
 
-                <span className='flex text-slate-400 text-sm font-bold mb-0.5 mr-2'>
+                <span className='flex text-gray-400 text-sm font-bold mb-0.5 mr-2'>
                   <Link
                     href={release.author.html_url}
                     className='hover:underline'
@@ -95,7 +95,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                 </Badge>
               </section>
 
-              <div className='border-b border-slate-800 py-1 mx-6' />
+              <div className='border-b border-gray-600 py-1 mb-6 mx-6' />
 
               <CardContent>
                 <div
