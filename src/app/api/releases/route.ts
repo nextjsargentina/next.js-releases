@@ -1,25 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
-import { type Release } from '@/types'
+import { type SearchParams, type Release } from '@/types'
 import { personalAccessToken } from '@/config'
 
-export async function getReleases(
-  req: NextApiRequest,
-  res: NextApiResponse<Release[] | { error: string }>
-) {
-  if (req.method !== 'GET') {
-    res.setHeader('Allow', ['GET'])
-    res.status(405).end(`Method ${req.method} Not Allowed`)
-    return
-  }
-
-  const { page, perPage } = req.query
-
+export async function getReleases({
+  page,
+  perPage
+}: SearchParams): Promise<Release[]> {
   try {
     const token = personalAccessToken
     if (!token) {
-      res.status(401).json({ error: 'Personal access token is not defined.' })
-      return
+      throw new Error('Personal access token is not defined.')
     }
 
     const response = await axios.get<Release[]>(
@@ -31,9 +21,12 @@ export async function getReleases(
       }
     )
 
-    res.status(200).json(response.data)
+    return response.data
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ error: 'Error fetching releases' })
+    if (error instanceof Error) {
+      throw new Error(error.message)
+    } else {
+      throw new Error('Error fetching releases')
+    }
   }
 }
