@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 import { Head } from '@/components/head'
 import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
   title: 'NextJS Releases App',
@@ -23,6 +24,7 @@ export default function RootLayout({
     >
       <Head metadata={metadata} />
       <body>
+        <Header />
         {children}
         <Footer />
       </body>
