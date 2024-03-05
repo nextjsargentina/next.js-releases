@@ -1,32 +1,35 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
-import { type SearchParams, type Release } from '@/types'
 import { personalAccessToken } from '@/config'
+import { releaseApiUrl } from '@/constants'
+import { type Release } from '@/types'
 
-export async function getReleases({
-  page,
-  perPage
-}: SearchParams): Promise<Release[]> {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Release[] | { error: string }>
+) {
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', ['GET'])
+    res.status(405).end(`Method ${req.method} Not Allowed`)
+    return
+  }
+
   try {
     const token = personalAccessToken
     if (!token) {
-      throw new Error('Personal access token is not defined.')
+      res.status(401).json({ error: 'Personal access token is not defined.' })
+      return
     }
 
-    const response = await axios.get<Release[]>(
-      `https://api.github.com/repos/vercel/next.js/releases?page=${page}&per_page=${perPage}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
+    const response = await axios.get<Release[]>(releaseApiUrl, {
+      headers: {
+        Authorization: `Bearer ${token}`
       }
-    )
+    })
 
-    return response.data
+    res.status(200).json(response.data)
   } catch (error) {
-    if (error instanceof Error) {
-      throw new Error(error.message)
-    } else {
-      throw new Error('Error fetching releases')
-    }
+    console.error('Error fetching releases')
+    res.status(500).json({ error: 'Error fetching releases' })
   }
 }

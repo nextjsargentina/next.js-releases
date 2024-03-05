@@ -15,7 +15,7 @@ export function useContent({ releases }: { releases: Release[] }) {
         )
         setHtmlContent(html)
       } catch (error) {
-        console.error('Error converting markdown to HTML:', error)
+        throw new Error('Error converting markdown to HTML')
       }
     }
 
