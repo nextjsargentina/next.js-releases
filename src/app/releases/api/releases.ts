@@ -1,19 +1,11 @@
 import axios from 'axios'
 import { type SearchParams, type Release } from '@/types'
 import { personalAccessToken } from '@/config'
-import { unstable_cache as cache } from 'next/cache'
 
 export async function getReleases({
   page,
   perPage
 }: SearchParams): Promise<Release[]> {
-  const cacheKey = `releases-${page}-${perPage}`
-  const cachedData: Release[] = await cache.get(cacheKey)
-
-  if (cachedData) {
-    return cachedData
-  }
-
   try {
     const token = personalAccessToken
     if (!token) {
@@ -29,7 +21,6 @@ export async function getReleases({
       }
     )
 
-    await cache(cacheKey, response.data, { ttl: 3600 })
     return response.data
   } catch (error) {
     if (error instanceof Error) {
