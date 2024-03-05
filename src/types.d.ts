@@ -76,10 +76,6 @@ export interface Reactions {
 }
 
 export interface SearchParams {
-  query: Query
-}
-
-export interface Query {
   page: string
   perPage: string
 }

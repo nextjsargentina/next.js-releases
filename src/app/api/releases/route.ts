@@ -1,14 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from 'axios'
-import { type SearchParams, type Release } from '@/types'
+import { type Release } from '@/types'
 import { personalAccessToken } from '@/config'
-
-function parseQueryParams({ query }: SearchParams) {
-  return {
-    page: parseInt(query.page, 1) || '1',
-    perPage: parseInt(query.perPage, 10) || '10'
-  }
-}
 
 export async function getReleases(
   req: NextApiRequest,
@@ -20,7 +13,7 @@ export async function getReleases(
     return
   }
 
-  const { page, perPage } = parseQueryParams(req.query)
+  const { page, perPage } = req.query
 
   try {
     const token = personalAccessToken
