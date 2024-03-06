@@ -45,7 +45,10 @@ export function CardReleased({ releases }: { releases: Release[] }) {
       ) : (
         <>
           {releases.map((release, index) => (
-            <Card key={release.id} className='mb-12 border-gray-600'>
+            <Card
+              key={release.id}
+              className='mb-12 border-gray-600 max-w-sm md:max-w-full'
+            >
               <section className='flex items-center'>
                 <CardHeader className='flex'>
                   <CardTitle className='flex md:text-3xl text-2xl'>
