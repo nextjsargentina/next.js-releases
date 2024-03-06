@@ -27,7 +27,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
             <CardTitle className='flex md:text-3xl text-2xl'>
               No releases
             </CardTitle>
-            <CardDescription>
+            <CardDescription className='text-pretty'>
               There are no releases to show. Please check back later.
             </CardDescription>
           </CardHeader>

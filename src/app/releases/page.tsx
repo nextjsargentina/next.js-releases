@@ -26,7 +26,7 @@ export default function ReleasesPage() {
   }, [])
 
   return (
-    <main className='flex flex-col items-center justify-center min-h-[85vh] md:p-24 p-12'>
+    <main className='flex flex-col items-center justify-center min-h-[85vh] md:p-24 p-6'>
       <CardReleased releases={releases} />
       {/* <PaginationControl /> */}
     </main>
