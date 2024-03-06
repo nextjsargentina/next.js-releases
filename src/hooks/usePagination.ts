@@ -1,36 +1,46 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-export function usePagination(page = 1, perPage = 10) {
+export function usePagination(defaultPage = 1, defaultPerPage = 10) {
   const router = useRouter()
-  const [currentPage, setCurrentPage] = useState(router.query.page)
-  const [releases, setReleases] = useState([])
+  const [page, setPage] = useState(defaultPage)
+  const [perPage, setPerPage] = useState(defaultPerPage)
 
   useEffect(() => {
-    const fetchReleases = async () => {
-      try {
-        const data = await getReleases(currentPage, perPage)
-        setReleases(data)
-      } catch (error) {
-        console.error(error)
-      }
+    const nextPage = parseInt(router.query.page as string) || defaultPage
+    const nextPerPage =
+      parseInt(router.query.perPage as string) || defaultPerPage
+
+    if (page !== nextPage) {
+      setPage(nextPage)
     }
-    fetchReleases()
-  }, [currentPage, perPage])
+    if (perPage !== nextPerPage) {
+      setPerPage(nextPerPage)
+    }
+  }, [
+    router.query.page,
+    router.query.perPage,
+    page,
+    perPage,
+    defaultPage,
+    defaultPerPage
+  ])
 
-  // Actualizar la URL cuando cambia la página
-  useEffect(() => {
-    const query = { ...router.query, page: currentPage, perPage }
+  const updatePage = (newPage: number) => {
+    const query = { ...router.query, page: newPage.toString() }
     router.push({ pathname: router.pathname, query }, undefined, {
       shallow: true
     })
-  }, [currentPage, perPage, router])
-
-  return {
-    currentPage,
-    setCurrentPage,
-    releases
   }
+
+  const updatePerPage = (newPerPage: number) => {
+    const query = { ...router.query, perPage: newPerPage.toString(), page: '1' }
+    router.push({ pathname: router.pathname, query }, undefined, {
+      shallow: true
+    })
+  }
+
+  return { page, perPage, updatePage, updatePerPage }
 }
