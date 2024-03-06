@@ -76,6 +76,6 @@ export interface Reactions {
 }
 
 export interface SearchParams {
-  page: string
-  perPage: string
+  page: number
+  perPage: number
 }

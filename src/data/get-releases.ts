@@ -1,15 +1,20 @@
 import axios from 'axios'
-import { type Release } from '@/types'
-import { personalAccessToken, releaseApiUrl } from '@/config'
+import { type SearchParams, type Release } from '@/types'
+import { personalAccessToken, releaseApiUrlWithPage } from '@/config'
 
-export async function getReleases(): Promise<Release[]> {
+export async function getReleases({
+  page,
+  perPage
+}: SearchParams): Promise<Release[]> {
+  const url = releaseApiUrlWithPage({ page, perPage })
+
   try {
     const token = personalAccessToken
     if (!token) {
       throw new Error('Personal access token is not defined.')
     }
 
-    const response = await axios.get<Release[]>(releaseApiUrl, {
+    const response = await axios.get<Release[]>(url, {
       headers: {
         Authorization: `Bearer ${token}`
       }
