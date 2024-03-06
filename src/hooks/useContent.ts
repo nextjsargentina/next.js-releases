@@ -6,21 +6,27 @@ import { type Release } from '@/types'
 
 export function useContent({ releases }: { releases: Release[] }) {
   const [htmlContent, setHtmlContent] = useState<string[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<null | string>(null)
 
   useEffect(() => {
-    async function convertMarkdown() {
+    setLoading(true)
+    const convertMarkdown = async () => {
       try {
         const html = await Promise.all(
           releases.map(async (release) => await markdownToHtml(release.body))
         )
         setHtmlContent(html)
+        setError(null)
       } catch (error) {
-        throw new Error('Error converting markdown to HTML')
+        setError('Error converting markdown to HTML')
+      } finally {
+        setLoading(false)
       }
     }
 
     convertMarkdown()
   }, [releases])
 
-  return { htmlContent }
+  return { htmlContent, loading, error }
 }

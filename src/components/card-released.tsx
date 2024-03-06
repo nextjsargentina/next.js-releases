@@ -18,7 +18,7 @@ import { useContent } from '@/hooks/useContent'
 import { useReleases } from '@/hooks/useReleases'
 
 export function CardReleased() {
-  const { releases } = useReleases()
+  const { releases, loading, error } = useReleases({ page, perPage })
   const { htmlContent } = useContent({ releases })
   const noReleases = releases.length === 0 || null
 

@@ -2,23 +2,29 @@
 
 import { useState, useEffect } from 'react'
 import { getReleases } from '@/data/get-releases'
-import { type Release } from '@/types'
+import { type SearchParams, type Release } from '@/types'
 
-export function useReleases() {
+export function useReleases({ page, perPage }: SearchParams) {
   const [releases, setReleases] = useState<Release[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<null | string>(null)
 
   useEffect(() => {
+    setLoading(true)
     const fetchReleases = async () => {
       try {
-        const releasesData = await getReleases()
+        const releasesData = await getReleases({ page, perPage })
         setReleases(releasesData)
+        setError(null)
       } catch (error) {
-        throw new Error('Error fetching releases')
+        setError('Error fetching releases')
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchReleases()
-  }, [])
+  }, [page, perPage])
 
-  return { releases }
+  return { releases, loading, error }
 }
