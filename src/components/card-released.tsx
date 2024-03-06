@@ -17,7 +17,7 @@ import { useContent } from '@/hooks/useContent'
 
 export function CardReleased({ releases }: { releases: Release[] }) {
   const { htmlContent } = useContent({ releases })
-  const noReleases = releases.length === 0
+  const noReleases = releases.length === 0 || null
 
   return (
     <main>
