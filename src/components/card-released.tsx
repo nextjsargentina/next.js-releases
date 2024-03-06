@@ -51,7 +51,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                   <CardTitle className='flex md:text-3xl text-2xl'>
                     <Link
                       href={release.html_url}
-                      className='hover:text-blue-500 hover:underline'
+                      className='text-gray-100 hover:text-blue-500 hover:underline'
                       rel='noopener noreferrer'
                       target='_blank'
                     >
@@ -90,7 +90,10 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                   </Link>
                 </span>
 
-                <Badge className='flex text-gray-100 mr-6' variant='secondary'>
+                <Badge
+                  className='flex text-gray-100 bg-gray-800 mr-6'
+                  variant='secondary'
+                >
                   {timeSinceFormat(new Date(release.published_at))}
                 </Badge>
               </section>
