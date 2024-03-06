@@ -7,3 +7,7 @@ export const releaseApiUrl =
 
 export const releaseApiUrlWithPage = ({ page, perPage }: SearchParams) =>
   `${releaseApiUrl}?page=${page}&per_page=${perPage}`
+
+export const defaultPage = 1
+export const defaultPerPage = 10
+export const defaultTotalItems = 30

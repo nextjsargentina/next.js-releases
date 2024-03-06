@@ -2,45 +2,39 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { defaultPage, defaultPerPage } from '@/config'
 
-export function usePagination(defaultPage = 1, defaultPerPage = 10) {
+export function usePagination() {
   const router = useRouter()
-  const [page, setPage] = useState(defaultPage)
-  const [perPage, setPerPage] = useState(defaultPerPage)
+  const [page, setPage] = useState(
+    parseInt(router.query.page as string) || defaultPage
+  )
 
   useEffect(() => {
-    const nextPage = parseInt(router.query.page as string) || defaultPage
-    const nextPerPage =
-      parseInt(router.query.perPage as string) || defaultPerPage
+    const handleRouteChange = () => {
+      const newPage = parseInt(router.query.page as string) || defaultPage
+      setPage(newPage)
+    }
 
-    if (page !== nextPage) {
-      setPage(nextPage)
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
     }
-    if (perPage !== nextPerPage) {
-      setPerPage(nextPerPage)
-    }
-  }, [
-    router.query.page,
-    router.query.perPage,
-    page,
-    perPage,
-    defaultPage,
-    defaultPerPage
-  ])
+  }, [router.query.page, router.events])
 
   const updatePage = (newPage: number) => {
     const query = { ...router.query, page: newPage.toString() }
-    router.push({ pathname: router.pathname, query }, undefined, {
-      shallow: true
-    })
+    if (newPage === defaultPage) {
+      const { page, ...rest } = query
+      router.push({ pathname: router.pathname, query: rest }, undefined, {
+        shallow: true
+      })
+    } else {
+      router.push({ pathname: router.pathname, query }, undefined, {
+        shallow: true
+      })
+    }
   }
 
-  const updatePerPage = (newPerPage: number) => {
-    const query = { ...router.query, perPage: newPerPage.toString(), page: '1' }
-    router.push({ pathname: router.pathname, query }, undefined, {
-      shallow: true
-    })
-  }
-
-  return { page, perPage, updatePage, updatePerPage }
+  return { page, updatePage, perPage: defaultPerPage }
 }
