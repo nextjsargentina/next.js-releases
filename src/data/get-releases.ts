@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { type Release } from '@/types'
-import { personalAccessToken } from '@/config'
-import { releaseApiUrl } from '@/constants'
+import { personalAccessToken, releaseApiUrl } from '@/config'
 
 export async function getReleases(): Promise<Release[]> {
   try {
