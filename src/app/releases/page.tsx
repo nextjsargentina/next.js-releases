@@ -1,15 +1,10 @@
-'use client'
-
 import { CardReleased } from '@/components/card-released'
-import { useReleases } from '@/hooks/useReleases'
 // import { PaginationControl } from '@/components/pagination-control'
 
 export default function ReleasesPage() {
-  const { releases } = useReleases()
-
   return (
-    <main className='flex flex-col items-center justify-center min-h-[85vh] md:p-24 p-6'>
-      <CardReleased releases={releases} />
+    <main className='flex flex-col items-center justify-center min-h-[85vh] md:p-24 py-12 px-6'>
+      <CardReleased />
       {/* <PaginationControl /> */}
     </main>
   )
