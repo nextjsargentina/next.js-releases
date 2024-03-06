@@ -1,44 +1,56 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
+  // PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination'
 import { usePagination } from '@/hooks/usePagination'
-import { defaultTotalItems } from '@/config'
+import { defaultPerPage, defaultTotalItems } from '@/config'
+import styles from './pagination-control.module.css'
 
 export function PaginationControl() {
-  const { page, perPage, updatePage } = usePagination()
-  const totalPages = Math.ceil(defaultTotalItems / perPage)
-
-  const goToPreviousPage = () => {
-    updatePage(page - 1 > 0 ? page - 1 : 1)
-  }
-
-  const goToNextPage = () => {
-    updatePage(page + 1 <= totalPages ? page + 1 : totalPages)
-  }
+  const { page, updatePage } = usePagination()
+  const totalPages = Math.ceil(defaultTotalItems / defaultPerPage)
 
   return (
     <Pagination>
       <PaginationContent>
         {page > 1 && (
           <PaginationItem>
-          <PaginationPrevious href={`?page=${page - 1}`} onClick={(e) => updatePage(page - 1, e)}  />
+            <PaginationPrevious
+              onClick={() => {
+                updatePage(page - 1)
+              }}
+              href={`?page=${page - 1}`}
+            />
           </PaginationItem>
-        }
-        <PaginationItem>
-          <PaginationLink href='#'>1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href='#' />
-        </PaginationItem>
+        )}
+        {Array.from({ length: totalPages }, (_, index) => (
+          <PaginationItem key={index}>
+            <PaginationLink
+              onClick={() => {
+                updatePage(index + 1)
+              }}
+              href={`?page=${index + 1}`}
+              className={page === index + 1 ? styles.active : ''}
+            >
+              {index + 1}
+            </PaginationLink>
+          </PaginationItem>
+        ))}
+        {page < totalPages && (
+          <PaginationItem>
+            <PaginationNext
+              onClick={() => {
+                updatePage(page + 1)
+              }}
+              href={`?page=${page + 1}`}
+            />
+          </PaginationItem>
+        )}
       </PaginationContent>
     </Pagination>
   )
