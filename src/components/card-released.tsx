@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { timeSinceFormat } from '@/lib/time-since-format'
 import {
@@ -15,10 +13,9 @@ import styles from './card-released.module.css'
 import Image from 'next/image'
 import { Button } from './ui/button'
 import { useContent } from '@/hooks/useContent'
-import { useReleases } from '@/hooks/useReleases'
+import { type Release } from '@/types'
 
-export function CardReleased() {
-  const { releases } = useReleases({ page: 1, perPage: 10 })
+export function CardReleased({ releases }: { releases: Release[] }) {
   const { htmlContent } = useContent({ releases })
   const noReleases = releases.length === 0 || null
 

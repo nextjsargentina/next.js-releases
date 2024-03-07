@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Pagination,
   PaginationContent,
@@ -9,12 +7,17 @@ import {
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination'
-import { usePagination } from '@/hooks/usePagination'
 import { defaultPerPage, defaultTotalItems } from '@/config'
 import styles from './pagination-control.module.css'
+import { type SearchParams } from '@/types'
 
-export function PaginationControl() {
-  const { page, updatePage } = usePagination()
+export function PaginationControl({
+  page,
+  updatePage
+}: {
+  page: SearchParams['page']
+  updatePage: (page: number) => void
+}) {
   const totalPages = Math.ceil(defaultTotalItems / defaultPerPage)
 
   return (
