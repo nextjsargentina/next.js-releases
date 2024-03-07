@@ -6,34 +6,34 @@ import { defaultPage, defaultPerPage } from '@/config'
 
 export function usePagination() {
   const router = useRouter()
-  const [page, setPage] = useState(
-    parseInt(router.query.page as string) || defaultPage
-  )
+  const [page, setPage] = useState(defaultPage)
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      const newPage = parseInt(router.query.page as string) || defaultPage
+    const routeChangeHandler = () => {
+      const newPage = parseInt(router.query.page as string, 10) || defaultPage
       setPage(newPage)
     }
 
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+    if (router.isReady) {
+      routeChangeHandler()
     }
-  }, [router.query.page, router.events])
+
+    router.events.on('routeChangeComplete', routeChangeHandler)
+
+    return () => {
+      router.events.off('routeChangeComplete', routeChangeHandler)
+    }
+  }, [router.isReady, router.query.page, router.events])
 
   const updatePage = (newPage: number) => {
-    const query = { ...router.query, page: newPage.toString() }
-    if (newPage === defaultPage) {
-      const { page, ...rest } = query
-      router.push({ pathname: router.pathname, query: rest }, undefined, {
-        shallow: true
-      })
-    } else {
-      router.push({ pathname: router.pathname, query }, undefined, {
-        shallow: true
-      })
+    const query = {
+      ...router.query,
+      page: newPage === defaultPage ? undefined : newPage.toString()
     }
+
+    router.push({ pathname: router.pathname, query }, undefined, {
+      shallow: true
+    })
   }
 
   return { page, updatePage, perPage: defaultPerPage }
