@@ -20,7 +20,7 @@ Support and enhance this tool with us for the Next.js Argentina community. Your 
 
 ```bash
 # Clone the repository
-git clone git@github.com:emapeire/nextjs-releases-bot.git
+git clone git@github.com:emapeire/nextjs-releases.git
 
 # Navigate to the project directory
 cd nextjs-releases-bot
