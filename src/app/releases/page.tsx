@@ -12,7 +12,7 @@ import { useState } from 'react'
 export default function ReleasesPage() {
   const query = useSearchParams()
   const [page, setPage] = useState<number>(
-    Number(query.get('page')) ?? defaultPage
+    Number(query.get('page') ?? defaultPage)
   )
 
   const { data: releases } = useQuery<Release[]>({
