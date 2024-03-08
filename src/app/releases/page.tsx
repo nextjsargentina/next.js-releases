@@ -2,7 +2,7 @@
 
 import { CardReleased } from '@/components/card-released'
 import { PaginationControl } from '@/components/pagination-control'
-import { defaultPage } from '@/config'
+import { defaultPage, defaultPerPage } from '@/config'
 import { getReleases } from '@/data/get-releases'
 import { type Release } from '@/types'
 import { useQuery } from '@tanstack/react-query'
@@ -17,7 +17,7 @@ export default function ReleasesPage() {
 
   const { data: releases } = useQuery<Release[]>({
     queryKey: ['releases', page],
-    queryFn: async () => await getReleases({ page, perPage: defaultPage })
+    queryFn: async () => await getReleases({ page, perPage: defaultPerPage })
   })
 
   if (!releases) return null

@@ -16,7 +16,7 @@ export function PaginationControl({
   updatePage
 }: {
   page: SearchParams['page']
-  updatePage: (page: number) => void
+  updatePage: (page: SearchParams['page']) => void
 }) {
   const totalPages = Math.ceil(defaultTotalItems / defaultPerPage)
 
