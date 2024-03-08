@@ -34,7 +34,20 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     'react-refresh/only-export-components': 'off',
     'react/prop-types': 'off',
-    'react/jsx-no-target-blank': [2, { allowReferrer: false }]
+    'react/jsx-no-target-blank': [2, { allowReferrer: false }],
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'none',
+          requireLast: false
+        },
+        singleline: {
+          delimiter: 'comma',
+          requireLast: false
+        }
+      }
+    ]
   },
   overrides: [
     {
