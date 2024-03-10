@@ -5,6 +5,7 @@ import './globals.css'
 import { Head } from '@/components/head'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { Providers } from '@/components/providers'
 
 export const metadata: Metadata = {
   title: 'NextJS Releases App',
@@ -19,13 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang='en'
+      lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} dark`}
     >
       <Head metadata={metadata} />
       <body>
         <Header />
-        {children}
+        <Providers>{children}</Providers>
         <Footer />
       </body>
     </html>
