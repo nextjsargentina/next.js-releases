@@ -1,4 +1,4 @@
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="flex justify-center items-center text-gray-100 text-sm font-mono border-t border-gray-500 mt-6 h-12 md:border-none md:mt-2">
       <p>&copy; {new Date().getFullYear()} NextJS Releases App</p>

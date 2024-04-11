@@ -15,7 +15,7 @@ import { Button } from './ui/button'
 import { useContent } from '@/hooks/useContent'
 import { type Release } from '@/types'
 
-export function CardReleased({ releases }: { releases: Release[] }) {
+export default function CardReleased({ releases }: { releases: Release[] }) {
   const { htmlContent } = useContent({ releases })
   const noReleases = releases.length === 0 || null
 

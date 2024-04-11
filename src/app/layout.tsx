@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Head } from '@/components/head'
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import Head from '@/components/head'
+import Footer from '@/components/footer'
+import Header from '@/components/header'
 import { Providers } from '@/components/providers'
 import './globals.css'
 
@@ -26,7 +26,9 @@ export default function RootLayout({
       <Head metadata={metadata} />
       <body className="flex flex-col min-h-screen">
         <Header />
-        <Providers>{children}</Providers>
+        <div className="flex flex-1 flex-col">
+          <Providers>{children}</Providers>
+        </div>
         <Footer />
       </body>
     </html>

@@ -3,7 +3,7 @@ import { GitHubIcon } from './icons/github'
 import { XIcon } from './icons/x'
 import { DiscordIcon } from './icons/discord'
 
-export function Header() {
+export default function Header() {
   return (
     <header className="flex justify-between items-center w-full h-16 border-b border-gray-500 md:px-12 px-6">
       <Link href={'/'}>

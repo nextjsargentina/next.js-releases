@@ -11,7 +11,7 @@ import { defaultPerPage, defaultTotalItems } from '@/config'
 import styles from './pagination-control.module.css'
 import { type SearchParams } from '@/types'
 
-export function PaginationControl({
+export default function PaginationControl({
   page,
   updatePage
 }: {
