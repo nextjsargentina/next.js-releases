@@ -54,7 +54,7 @@ export function CardReleased({ releases }: { releases: Release[] }) {
                   <CardTitle className="flex md:text-3xl text-2xl">
                     <Link
                       href={release.html_url}
-                      className="text-gray-100 hover:text-blue-500 hover:underline"
+                      className="text-gray-100 hover:text-blue-600 hover:underline"
                       rel="noopener noreferrer"
                       target="_blank"
                     >

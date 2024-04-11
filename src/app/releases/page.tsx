@@ -23,7 +23,7 @@ export default function ReleasesPage() {
   if (!releases) return null
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-[85vh] md:p-24 py-12 px-6">
+    <main className="flex flex-1 flex-col items-center justify-center min-h-[85vh] md:p-24 py-12 px-6">
       <CardReleased releases={releases} />
       <PaginationControl page={page} updatePage={setPage} />
     </main>

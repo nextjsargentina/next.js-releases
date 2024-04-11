@@ -24,7 +24,7 @@ export default function RootLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} dark`}
     >
       <Head metadata={metadata} />
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Header />
         <Providers>{children}</Providers>
         <Footer />
