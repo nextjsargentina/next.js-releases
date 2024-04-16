@@ -22,7 +22,7 @@ export default function CardReleased({ releases }: { releases: Release[] }) {
   return (
     <main>
       {noReleases ? (
-        <Card className="border-neutral-600 shadow-2xl shadow-white/10">
+        <Card className="border-neutral-600 shadow-2xl shadow-white/10 w-full">
           <CardHeader className="flex">
             <CardTitle className="flex md:text-3xl text-2xl">
               No releases
@@ -45,10 +45,7 @@ export default function CardReleased({ releases }: { releases: Release[] }) {
       ) : (
         <>
           {releases.map((release, index) => (
-            <Card
-              key={release.id}
-              className="mb-12 border-neutral-600 max-w-sm min-w-sm md:max-w-full md:min-w-full"
-            >
+            <Card key={release.id} className="mb-12 border-neutral-600 w-full">
               <section className="flex items-center">
                 <CardHeader className="flex">
                   <CardTitle className="flex md:text-3xl text-2xl">
