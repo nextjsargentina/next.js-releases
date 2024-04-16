@@ -5,9 +5,9 @@ import { DiscordIcon } from './icons/discord'
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center w-full h-16 border-b border-gray-500 md:px-12 px-6">
+    <header className="flex justify-between items-center w-full h-16 border-b border-neutral-500 md:px-12 px-6">
       <Link href={'/'}>
-        <h1 className="text-center md:text-xl text-base font-semibold font-mono text-gray-100">
+        <h1 className="text-center md:text-xl text-base font-semibold font-mono text-neutral-100">
           NextJS Releases App
         </h1>
       </Link>

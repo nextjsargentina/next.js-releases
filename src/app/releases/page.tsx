@@ -31,8 +31,11 @@ export default function ReleasesPage() {
   }
   if (isError) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        Error: {error?.message}
+      <div className="flex items-center justify-center min-h-[85vh]">
+        <p className="flex font-mono border border-neutral-500 rounded-xl py-2 px-4">
+          <p className="font-bold">Error:&nbsp;</p>
+          {error?.message ?? 'An error occurred while fetching data.'}
+        </p>
       </div>
     )
   }
